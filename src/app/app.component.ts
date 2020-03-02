@@ -20,7 +20,7 @@ export class AppComponent  {
     let tabStr = p.split('');
     for(let i = 0; i < tabStr.length; i++) {
       if(tabStr[i] !== '0' && tabStr[i] !== '1') {
-        window.alert('You should input a binary string');
+        window.alert('You should input binary strings only');
         throw new Error('format error');
       }
       tab.push(parseInt(tabStr[i]));
