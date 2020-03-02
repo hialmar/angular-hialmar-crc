@@ -8,6 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent  {
   a = '100110000';
   b = '101';
+  validatedA = '100110000';
+  validatedB = '101';
+  error = '';
+
 
   constructor() {
     this.divide(this.toArray(this.a), this.toArray(this.b));
@@ -15,15 +19,42 @@ export class AppComponent  {
 
   // All algos are from https://asecuritysite.com/comms/crc_div
 
+  validate() {
+    try {
+      this.toArray(this.a);
+      this.validatedA = this.a;
+    } catch(e) {
+      this.a = this.validatedA;
+    }
+    try {
+      this.toArray(this.b);
+      this.validatedB = this.b;
+    } catch(e) {
+      this.b = this.validatedB;
+    }
+  }
+
   toArray(p: string) : number[] {
     let tab = [];
     let tabStr = p.split('');
     for(let i = 0; i < tabStr.length; i++) {
       if(tabStr[i] !== '0' && tabStr[i] !== '1') {
-        window.alert('You should input binary strings only');
-        throw new Error('format error');
+        if(p == this.a) {
+          this.a = this.validatedA;
+        }
+        if(p == this.b) {
+          this.b = this.validatedB;
+        }
+        return tab;
       }
       tab.push(parseInt(tabStr[i]));
+    }
+    this.error = '';
+    if(p == this.a) {
+      this.validatedA = this.a;
+    }
+    if(p == this.b) {
+      this.validatedB = this.b;
     }
     return tab;
   }
@@ -83,6 +114,10 @@ export class AppComponent  {
 
   working = '';
   divide(a: number[], b: number[]) {
+    if(b.length == 0) {
+      this.error = 'b should not be empty';
+      return;
+    }
     this.working=this.toSimpleString(a)+'\n';
     let addspace='';
     this.quotient = [];
