@@ -1,0 +1,16 @@
+<p>
+  CRC Calculation from <a href="https://asecuritysite.com/comms/crc_div">here</a>
+</p>
+<p>
+a: <input type='text' [(ngModel)]="a"> ({{toPolyString(toArray(a))}})<br>
+b: <input type='text' [(ngModel)]="b"> ({{toPolyString(toArray(b))}})<br>
+<button (click)="divide(toArray(a), toArray(b))">division</button><br>
+</p>
+<p>
+Quotient : {{toSimpleString(quotient)}} ({{toPolyString(quotient)}})<br>
+Remainder : {{toSimpleString(remainder)}} ({{toPolyString(remainder)}})<br>
+</p>
+<p>
+Details : 
+</p>
+<pre>{{working}}</pre>
