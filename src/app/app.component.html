@@ -4,7 +4,10 @@
 <p>
 a: <input type='text' [(ngModel)]="a" pattern="[01]*"> ({{toPolyString(toArray(a))}})<br>
 b: <input type='text' [(ngModel)]="b" pattern="[01]*"> ({{toPolyString(toArray(b))}})<br>
- {{error}}<br>
+<font color='red'>
+   {{error}}
+</font>
+<br>
 <button (click)="divide(toArray(a), toArray(b))">division</button><br>
 </p>
 <p>
