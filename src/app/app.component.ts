@@ -8,8 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent  {
   a = '100110000';
   b = '101';
-  validatedA = '100110000';
-  validatedB = '101';
   error = '';
 
 
@@ -118,12 +116,7 @@ export class AppComponent  {
         this.quotient.push(0);
       }
     }
-    console.log("Result "+this.toSimpleString(this.quotient));
     this.remainder = a;
-    console.log("Remainder "+this.toSimpleString(a));
-
-    console.log("Working : ");
-    console.log(this.working);
     this.error = '';
   }
 
