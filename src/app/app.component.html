@@ -2,8 +2,8 @@
   CRC Calculation from <a href="https://asecuritysite.com/comms/crc_div">here</a>
 </p>
 <p>
-a: <input type='text' [(ngModel)]="a" pattern="[01]*"> ({{toPolyString(toArray(a))}})<br>
-b: <input type='text' [(ngModel)]="b" pattern="[01]*"> ({{toPolyString(toArray(b))}})<br>
+a: <input type='text' [(ngModel)]="a" #itemA (input)="changeA(itemA)" pattern="[01]*"> ({{toPolyString(toArray(a))}})<br>
+b: <input type='text' [(ngModel)]="b" #itemB (input)="changeB(itemB)" pattern="[01]*"> ({{toPolyString(toArray(b))}})<br>
 <font color='red'>
    {{error}}
 </font>

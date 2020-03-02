@@ -15,6 +15,25 @@ export class AppComponent  {
     this.divide(this.toArray(this.a), this.toArray(this.b));
   }
 
+  changeA(item:any){
+    let value=item.value;
+    let pos=item.selectionStart;
+    if (!(new RegExp('^[0-1]+$').test(value)))
+    {
+      item.value=this.a=value.replace(/[^0-1]+/g, '');
+      item.selectionStart = item.selectionEnd = pos-1;
+    }
+  }
+  
+  changeB(item:any){
+    let value=item.value;
+    let pos=item.selectionStart;
+    if (!(new RegExp('^[0-1]+$').test(value)))
+    {
+      item.value=this.b=value.replace(/[^0-1]+/g, '');
+      item.selectionStart = item.selectionEnd = pos-1;
+    }
+  }
   // All algos are from https://asecuritysite.com/comms/crc_div
 
   toArray(p: string) : number[] {
