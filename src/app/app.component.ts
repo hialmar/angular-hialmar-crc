@@ -151,6 +151,7 @@ export class AppComponent  {
 
     console.log("Working : ");
     console.log(this.working);
+    this.error = '';
   }
 
 }
